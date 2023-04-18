@@ -1,5 +1,6 @@
 // this file is the entry point
 const express = require('express');
+const cors = require('cors');
 const colors = require('colors');
 require('dotenv').config();
 const {graphqlHTTP} = require('express-graphql');
@@ -11,6 +12,8 @@ const app = express();
 
 // connect to database
 connectDB();
+
+app.use(cors());
 
 app.use(
   '/graphql', 
